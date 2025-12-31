@@ -306,12 +306,12 @@ button.primary {
       </div>
     </div>
   </div>
-function toHiragana(str) {
+  <script>
+    function toHiragana(str) {
   return str
     .replace(/[ァ-ン]/g, s => String.fromCharCode(s.charCodeAt(0) - 0x60)) // カタカナ→ひらがな
     .toLowerCase();
-}
-  <script>
+  }    
     // ===== 内部データ構造 =====
     let participants = []; // 成人者一覧
     /*

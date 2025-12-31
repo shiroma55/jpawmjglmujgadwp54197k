@@ -306,7 +306,11 @@ button.primary {
       </div>
     </div>
   </div>
-
+function toHiragana(str) {
+  return str
+    .replace(/[ァ-ン]/g, s => String.fromCharCode(s.charCodeAt(0) - 0x60)) // カタカナ→ひらがな
+    .toLowerCase();
+}
   <script>
     // ===== 内部データ構造 =====
     let participants = []; // 成人者一覧
@@ -524,13 +528,13 @@ button.primary {
 
     // ===== 名前検索（予測変換） =====
     function filterParticipantsByNameQuery(query) {
-      const q = query.trim();
+      const q = toHiragana(query.trim());
       if (!q) return [];
-      const lower = q.toLowerCase();
-      return participants.filter(p => {
-        const name = (p.名前 || "").toLowerCase();
-        const kana = (p.ふりがな || "").toLowerCase();
-      return name.startsWith(lower) || kana.startsWith(lower);
+
+       return participants.filter(p => {
+    const name = toHiragana(p.名前 || "");
+    const kana = toHiragana(p.ふりがな || "");
+    return name.startsWith(q) || kana.startsWith(q);
       }).slice(0, 30); // 最大30件
     }
 

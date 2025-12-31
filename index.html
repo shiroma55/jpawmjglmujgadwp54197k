@@ -530,7 +530,7 @@ button.primary {
       return participants.filter(p => {
         const name = (p.名前 || "").toLowerCase();
         const kana = (p.ふりがな || "").toLowerCase();
-        return name.includes(lower) || kana.includes(lower);
+      return name.startsWith(lower) || kana.startsWith(lower);
       }).slice(0, 30); // 最大30件
     }
 

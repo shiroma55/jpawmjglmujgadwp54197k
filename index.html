@@ -546,8 +546,10 @@ button.primary {
         const item = document.createElement("div");
         item.className = "suggest-item";
         item.textContent = `${p.名前}（${p.ふりがな} / ${p.中学} / 番号:${p.番号}）`;
+        
         item.addEventListener("click", () => {
           showParticipantDetailsByName(p);
+          document.getElementById("nameSuggestions").innerHTML = "";  // ← これを追加！
         });
         container.appendChild(item);
       });

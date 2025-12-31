@@ -538,22 +538,25 @@ button.primary {
       }).slice(0, 30); // 最大30件
     }
 
-    function renderNameSuggestions(list) {
-      const container = document.getElementById("nameSuggestions");
-      container.innerHTML = "";
-      if (!list.length) return;
-      list.forEach(p => {
-        const item = document.createElement("div");
-        item.className = "suggest-item";
-        item.textContent = `${p.名前}（${p.ふりがな} / ${p.中学} / 番号:${p.番号}）`;
-        
-        item.addEventListener("click", () => {
-          showParticipantDetailsByName(p);
-          document.getElementById("nameSuggestions").innerHTML = "";  // ← これを追加！
-        });
-        container.appendChild(item);
-      });
-    }
+  function renderNameSuggestions(list) {
+  const container = document.getElementById("nameSuggestions");
+  container.innerHTML = "";
+  if (!list.length) return;
+
+  list.forEach(p => {
+    const item = document.createElement("div");
+    item.className = "suggest-item";
+    item.textContent = `${p.名前}（${p.ふりがな} / ${p.中学} / 番号:${p.番号}）`;
+
+    item.addEventListener("click", () => {
+      showParticipantDetailsByName(p);   // ← 正しい関数名
+      document.getElementById("nameSuggestions").innerHTML = "";
+      document.getElementById("nameSearchInput").blur();   // ← これで候補が再表示されない
+    });
+
+    container.appendChild(item);
+  });
+}
 
     function showParticipantDetailsByName(p) {
       const div = document.getElementById("selectedParticipantByName");

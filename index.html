@@ -736,11 +736,11 @@ button.primary {
       renderNameSuggestions(list);
     });
 
-    document.getElementById("clearNameSearch").addEventListener("click", () => {
-      document.getElementById("nameSearchInput").value = "";
-      document.getElementById("nameSuggestions").innerHTML = "";
-      document.getElementById("setArrivalTime").dataset.targetNumber = "";
-    });
+   document.getElementById("clearNameSearch").addEventListener("click", () => {
+     document.getElementById("nameSearchInput").value = "";
+     document.getElementById("nameSuggestions").innerHTML = "";
+     document.getElementById("setArrivalTime").dataset.targetNumber = "";
+   });
 
     document.getElementById("setArrivalTime").addEventListener("click", setArrivalTimeForSelected);
 

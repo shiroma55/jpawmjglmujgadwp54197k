@@ -531,10 +531,10 @@ button.primary {
       const q = toHiragana(query.trim());
       if (!q) return [];
    
-       return participants.filter(p => {
-    const name = toHiragana(p.名前 || "");
-    const kana = toHiragana(p.ふりがな || "");
-    return name.startsWith(q) || kana.startsWith(q);
+      return participants.filter(p => {
+        const name = toHiragana(p.名前 || "");
+        const kana = toHiragana(p.ふりがな || "");
+        return name.startsWith(q) || kana.startsWith(q);
       }).slice(0, 30); // 最大30件
     }
 

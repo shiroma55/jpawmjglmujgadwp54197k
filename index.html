@@ -530,7 +530,7 @@ button.primary {
     function filterParticipantsByNameQuery(query) {
       const q = toHiragana(query.trim());
       if (!q) return [];
-}
+   }
        return participants.filter(p => {
     const name = toHiragana(p.名前 || "");
     const kana = toHiragana(p.ふりがな || "");

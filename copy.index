@@ -762,6 +762,6 @@ button.primary {
     document.getElementById("addNewStaff").addEventListener("click", addNewStaff);
 
   </script>
-</body>
+</body> 
 
 </html>
